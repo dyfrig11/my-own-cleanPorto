@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // import Footer from '../components/Footer';
 import images1 from '../assets/images/coverNaka.png';
 import images2 from '../assets/images/freastCover.png';
@@ -61,19 +62,25 @@ function Projects() {
 
     {/* Project Name */}
     <h3 className="text-xl font-bold text-gray-800">
-      {client.url ? (
-        <a
-          href={client.url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:underline transition-colors"
-        >
-          {client.name}
-        </a>
-      ) : (
-        client.name
-      )}
-    </h3>
+  {client.isInternal ? (
+    <Link
+      to={client.url}
+      className="hover:underline transition-colors"
+    >
+      {client.name}
+    </Link>
+  ) : (
+    <a
+      href={client.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:underline transition-colors"
+    >
+      {client.name}
+    </a>
+  )}
+</h3>
+
 
     {/* Project Image */}
     {client.image && (
